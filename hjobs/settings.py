@@ -48,7 +48,16 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
-
+TEMPLATE_CONTEXT_PROCESSORS = (
+                            "django.contrib.auth.context_processors.auth",
+                            "django.core.context_processors.request",
+                            "django.core.context_processors.debug",
+                            "django.core.context_processors.i18n",
+                            "django.core.context_processors.media",
+                            "django.core.context_processors.static",
+                            "django.core.context_processors.tz",
+                            "django.contrib.messages.context_processors.messages"
+                            )
 ROOT_URLCONF = 'hjobs.urls'
 
 WSGI_APPLICATION = 'hjobs.wsgi.application'
@@ -82,3 +91,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
 STATIC_URL = '/static/'
+
+LOGIN_URL = "/login/"
+LOGIN_REDIRECT_URL = "/"
