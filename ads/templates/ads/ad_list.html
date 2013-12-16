@@ -1,17 +1,24 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <a href="{% url 'post_ad' %}">
-        Post a new ad
-    </a>
-    <ul>
-        {% for o in object_list %}
-          <li>
-              <a href="{{o.get_absolute_url}}">
-                  {{o.title}}
-              </a>
-          </li>
-        {% endfor %}
-    </ul>
+
+    <div class="row">
+         <div class="col-md-8">
+            <ul class="list-group">
+                {% for o in object_list %}
+                  <li class="list-group-item">
+                      <a href="{{o.get_absolute_url}}">
+                          {{o.title}}
+                      </a>
+                  </li>
+                {% endfor %}
+            </ul>
+         </div>
+         <div class="col-md-4">
+            <a class="btn btn-success" href="{% url 'post_ad' %}">
+                Post a new ad
+            </a>
+         </div>
+     </div>
 
 {% endblock %}
