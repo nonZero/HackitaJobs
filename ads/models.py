@@ -1,3 +1,4 @@
+from django.core.urlresolvers import reverse
 from django.db import models
 
 
@@ -27,3 +28,6 @@ class Ad(models.Model):
     def tag_list(self):
         return ", ".join([tag.name for tag in self.tags.all()])
     tag_list.short_description = "Tags"
+
+    def get_absolute_url(self):
+        return reverse('ad', args=(self.id,))
